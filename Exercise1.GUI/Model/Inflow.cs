@@ -41,6 +41,10 @@ namespace Exercise1.GUI
         /// The maximum that is possible for this inflow
         /// </summary>
         public Double MaxFlow { get; set; }
+        /// <summary>
+        /// The number of gage readings for this inflow
+        /// </summary>
+        public int NumGageReadings => DataContext.GageReadings.Where(r => r.InflowGUID == GUID).Count();
 
         /// <summary>
         /// The collection of all runs in the data context that this inflow is associated with.

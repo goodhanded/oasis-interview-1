@@ -83,6 +83,11 @@ namespace Exercise1.GUI
             }
         }
         /// <summary>
+        /// The number of gage readings for this inflow
+        /// </summary>
+        public int NumGageReadings => Inflow.NumGageReadings;
+
+        /// <summary>
         /// The collection of Runs that this inflow is associated with
         /// </summary>
         public ObservableCollection<Run> Runs { get; set; }
