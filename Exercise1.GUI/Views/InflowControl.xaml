@@ -4,6 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Exercise1.GUI"
     >
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -11,6 +14,7 @@
             <ColumnDefinition Width="280" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -42,5 +46,14 @@
         <TextBlock Grid.Column="0" Grid.Row="6">Current Runs</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="6" Margin="2" Text="{Binding NumCurrentRuns}"/>
 
+        <TextBlock Grid.Column="0" Grid.Row="7">Timestamps</TextBlock>
+        <ListBox Grid.Column="1" Grid.Row="7" Margin="2" MaxHeight="100" ItemsSource="{Binding GageReadings}" Visibility="{Binding HasGageReadings, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding TimeStamp, StringFormat='{}{0:MMMM dd, yyyy}'}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Grid.Column="1" Grid.Row="7" Margin="2" Visibility="{Binding HasNoGageReadings, Converter={StaticResource BooleanToVisibilityConverter}}" Text="No Gage Readings"/>
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
@@ -41,10 +42,11 @@ namespace Exercise1.GUI
         /// The maximum that is possible for this inflow
         /// </summary>
         public Double MaxFlow { get; set; }
+
         /// <summary>
-        /// The number of gage readings for this inflow
+        /// Gage Readings associated with this inflow
         /// </summary>
-        public int NumGageReadings => DataContext.GageReadings.Where(r => r.InflowGUID == GUID).Count();
+        public IEnumerable<GageReading> GageReadings => DataContext.GageReadings.Where(r => r.InflowGUID == GUID);
 
         /// <summary>
         /// The collection of all runs in the data context that this inflow is associated with.

@@ -82,10 +82,27 @@ namespace Exercise1.GUI
                 NotifyPropertyChanged(nameof(MaxFlow));
             }
         }
+
+        /// <summary>
+        /// Whether this inflow has gage readings
+        /// </summary>
+        public bool HasGageReadings => NumGageReadings > 0;
+
+        /// <summary>
+        /// Whether this inflow does not have gage readings. This is a helper for negating visibility of
+        /// the timestamps display since xaml doesn't support negation.
+        /// </summary>
+        public bool HasNoGageReadings => !HasGageReadings;
+
         /// <summary>
         /// The number of gage readings for this inflow
         /// </summary>
-        public int NumGageReadings => Inflow.NumGageReadings;
+        public int NumGageReadings => Inflow.GageReadings.Count();
+
+        /// <summary>
+        /// The gage readings associated with this inflow
+        /// </summary>
+        public IEnumerable<GageReading> GageReadings => Inflow.GageReadings;
 
         /// <summary>
         /// The number of current runs associated with this inflow
