@@ -88,6 +88,11 @@ namespace Exercise1.GUI
         public int NumGageReadings => Inflow.NumGageReadings;
 
         /// <summary>
+        /// The number of current runs associated with this inflow
+        /// </summary>
+        public int NumCurrentRuns => Runs.Where(r => r.IsCurrent).Count();
+
+        /// <summary>
         /// The collection of Runs that this inflow is associated with
         /// </summary>
         public ObservableCollection<Run> Runs { get; set; }

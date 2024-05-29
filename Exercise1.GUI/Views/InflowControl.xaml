@@ -36,8 +36,11 @@
         <TextBlock Grid.Column="0" Grid.Row="4">Gage Readings</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="4" Margin="2" Text="{Binding NumGageReadings}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="6">Number of Runs</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="6" Margin="2" Text="{Binding Runs.Count}"/>
+        <TextBlock Grid.Column="0" Grid.Row="5">Number of Runs</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="5" Margin="2" Text="{Binding Runs.Count}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="6">Current Runs</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="6" Margin="2" Text="{Binding NumCurrentRuns}"/>
 
     </Grid>
 </UserControl>
